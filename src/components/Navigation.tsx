@@ -9,6 +9,8 @@ const Navigation = () => {
     { name: 'Home', href: '#home' },
     { name: 'Biography', href: '#biography' },
     { name: 'Discography', href: '#discography' },
+    { name: 'Videos', href: '#videos' },
+    { name: 'Gallery', href: '#gallery' },
     { name: 'Awards', href: '#awards' },
     { name: 'News', href: '#news' }
   ];
@@ -19,7 +21,7 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <div className="flex-shrink-0">
-              <h1 className="text-2xl font-bebas text-em-gold tracking-wider">EMINEM</h1>
+              <a href="#home" className="text-2xl font-bebas text-em-gold tracking-wider">EMINEM</a>
             </div>
           </div>
           

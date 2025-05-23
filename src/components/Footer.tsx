@@ -3,10 +3,17 @@ import { Music, Youtube, Twitter, Instagram, Facebook } from 'lucide-react';
 
 const Footer = () => {
   const socialLinks = [
-    { icon: <Youtube size={24} />, href: "#", label: "YouTube" },
-    { icon: <Twitter size={24} />, href: "#", label: "Twitter" },
-    { icon: <Instagram size={24} />, href: "#", label: "Instagram" },
-    { icon: <Facebook size={24} />, href: "#", label: "Facebook" },
+    { icon: <Youtube size={24} />, href: "https://www.youtube.com/channel/UCfM3zsQsOnfWNUppiycmBuw", label: "YouTube" },
+    { icon: <Twitter size={24} />, href: "https://twitter.com/Eminem", label: "Twitter" },
+    { icon: <Instagram size={24} />, href: "https://www.instagram.com/eminem/", label: "Instagram" },
+    { icon: <Facebook size={24} />, href: "https://www.facebook.com/eminem", label: "Facebook" },
+  ];
+
+  const officialLinks = [
+    { text: "Official Website", href: "https://www.eminem.com/" },
+    { text: "Shady Records", href: "https://www.shadyrecords.com/" },
+    { text: "Spotify", href: "https://open.spotify.com/artist/7dGJo4pcD2V6oG8kP0tJRR" },
+    { text: "Apple Music", href: "https://music.apple.com/us/artist/eminem/111051" }
   ];
 
   return (
@@ -27,9 +34,9 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div className="space-y-4">
-            <h4 className="text-lg font-oswald font-bold text-white">Quick Links</h4>
+            <h4 className="text-lg font-oswald font-bold text-white">Site Links</h4>
             <ul className="space-y-2">
-              {['Biography', 'Discography', 'Awards', 'News', 'Tour Dates'].map((link) => (
+              {['Biography', 'Discography', 'Awards', 'News', 'Gallery', 'Videos'].map((link) => (
                 <li key={link}>
                   <a
                     href={`#${link.toLowerCase()}`}
@@ -51,6 +58,8 @@ const Footer = () => {
                   key={index}
                   href={social.href}
                   aria-label={social.label}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-12 h-12 bg-em-gray rounded-full flex items-center justify-center text-gray-300 hover:text-em-gold hover:bg-em-gold/10 transition-all duration-300 transform hover:scale-110"
                 >
                   {social.icon}
@@ -63,6 +72,25 @@ const Footer = () => {
                 <br />
                 Subscribe for exclusive updates.
               </p>
+            </div>
+
+            {/* Official Links */}
+            <div className="mt-6">
+              <h4 className="text-lg font-oswald font-bold text-white mb-3">Official Links</h4>
+              <ul className="space-y-2">
+                {officialLinks.map((link, index) => (
+                  <li key={index}>
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-300 hover:text-em-gold font-oswald transition-colors duration-300 flex items-center gap-2"
+                    >
+                      <span className="text-em-gold text-xs">→</span> {link.text}
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>

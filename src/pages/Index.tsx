@@ -6,6 +6,8 @@ import DiscographySection from '../components/DiscographySection';
 import AwardsSection from '../components/AwardsSection';
 import NewsSection from '../components/NewsSection';
 import Footer from '../components/Footer';
+import MusicVideoSection from '../components/MusicVideoSection';
+import GallerySection from '../components/GallerySection';
 
 const Index = () => {
   return (
@@ -14,6 +16,8 @@ const Index = () => {
       <HeroSection />
       <BiographySection />
       <DiscographySection />
+      <MusicVideoSection />
+      <GallerySection />
       <AwardsSection />
       <NewsSection />
       <Footer />
