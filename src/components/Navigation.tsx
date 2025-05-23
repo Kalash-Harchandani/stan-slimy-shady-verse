@@ -10,7 +10,6 @@ const Navigation = () => {
     { name: 'Biography', href: '#biography' },
     { name: 'Discography', href: '#discography' },
     { name: 'Videos', href: '#videos' },
-    { name: 'Gallery', href: '#gallery' },
     { name: 'Awards', href: '#awards' },
     { name: 'News', href: '#news' }
   ];

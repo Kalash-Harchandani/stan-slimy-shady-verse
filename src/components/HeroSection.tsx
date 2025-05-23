@@ -20,12 +20,12 @@ const HeroSection = () => {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Hero Background Image */}
+      {/* Hero Background Image - Updated to Eminem photo */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0" 
         style={{ 
-          backgroundImage: "url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5')", 
-          filter: "brightness(0.4) contrast(1.1)" 
+          backgroundImage: "url('https://i.imgur.com/QO8Z6Hl.jpg')", 
+          filter: "brightness(0.5) contrast(1.2)" 
         }}
       ></div>
 

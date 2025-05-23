@@ -1,7 +1,10 @@
 
-import { Play, Calendar, Award } from 'lucide-react';
+import { Play, Calendar, Award, Youtube } from 'lucide-react';
+import { useState } from 'react';
 
 const DiscographySection = () => {
+  const [activeVideo, setActiveVideo] = useState<string | null>(null);
+  
   const albums = [
     {
       title: "The Slim Shady LP",
@@ -9,7 +12,8 @@ const DiscographySection = () => {
       description: "The album that introduced the world to Slim Shady",
       tracks: "20 tracks",
       certification: "4× Platinum",
-      color: "from-purple-600 to-blue-600"
+      color: "from-purple-600 to-blue-600",
+      videoId: "eJO5HU_7_1w" // Slim Shady
     },
     {
       title: "The Marshall Mathers LP",
@@ -17,7 +21,8 @@ const DiscographySection = () => {
       description: "One of the fastest-selling albums in hip-hop history",
       tracks: "18 tracks",
       certification: "11× Platinum",
-      color: "from-red-600 to-orange-600"
+      color: "from-red-600 to-orange-600",
+      videoId: "XbGs_qK2PQA" // Lose Yourself
     },
     {
       title: "The Eminem Show",
@@ -25,7 +30,8 @@ const DiscographySection = () => {
       description: "Showcased Eminem's production skills and lyrical maturity",
       tracks: "20 tracks",
       certification: "12× Platinum",
-      color: "from-green-600 to-teal-600"
+      color: "from-green-600 to-teal-600",
+      videoId: "YVkUvmDQ3HY" // Without Me
     },
     {
       title: "Recovery",
@@ -33,7 +39,8 @@ const DiscographySection = () => {
       description: "His comeback album after a hiatus",
       tracks: "17 tracks",
       certification: "4× Platinum",
-      color: "from-yellow-600 to-orange-600"
+      color: "from-yellow-600 to-orange-600",
+      videoId: "j5-yKhDd64s" // Not Afraid
     },
     {
       title: "The Marshall Mathers LP 2",
@@ -41,7 +48,8 @@ const DiscographySection = () => {
       description: "The sequel to his iconic second album",
       tracks: "16 tracks",
       certification: "4× Platinum",
-      color: "from-indigo-600 to-purple-600"
+      color: "from-indigo-600 to-purple-600",
+      videoId: "RSdKmX2BH7o" // Rap God
     },
     {
       title: "Music to Be Murdered By",
@@ -49,7 +57,8 @@ const DiscographySection = () => {
       description: "His surprise eleventh studio album",
       tracks: "20 tracks",
       certification: "Platinum",
-      color: "from-gray-600 to-black"
+      color: "from-gray-600 to-black",
+      videoId: "RHQC4fAhcbU" // Darkness
     }
   ];
 
@@ -75,12 +84,19 @@ const DiscographySection = () => {
             >
               <div className={`h-48 bg-gradient-to-br ${album.color} relative overflow-hidden`}>
                 <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <button className="bg-em-gold hover:bg-em-gold/90 text-black p-4 rounded-full transform scale-0 group-hover:scale-100 transition-transform duration-300">
+                  <button 
+                    className="bg-em-gold hover:bg-em-gold/90 text-black p-4 rounded-full transform scale-0 group-hover:scale-100 transition-transform duration-300"
+                    onClick={() => setActiveVideo(album.videoId)}
+                  >
                     <Play size={24} />
                   </button>
                 </div>
                 <div className="absolute top-4 right-4 bg-black/60 px-3 py-1 rounded-full">
                   <span className="text-white font-oswald font-bold text-sm">{album.year}</span>
+                </div>
+                <div className="absolute bottom-4 left-4 bg-red-600 px-2 py-1 rounded-full flex items-center gap-1">
+                  <Youtube size={16} className="text-white" />
+                  <span className="text-white font-oswald font-bold text-xs">WATCH</span>
                 </div>
               </div>
               
@@ -113,6 +129,34 @@ const DiscographySection = () => {
           </button>
         </div>
       </div>
+
+      {/* Video Modal */}
+      {activeVideo && (
+        <div 
+          className="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-4"
+          onClick={() => setActiveVideo(null)}
+        >
+          <div className="relative max-w-6xl w-full max-h-[90vh]">
+            <button 
+              className="absolute top-4 right-4 bg-em-gold rounded-full p-2 text-black hover:bg-white transition duration-300"
+              onClick={() => setActiveVideo(null)}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            <div className="aspect-video w-full">
+              <iframe 
+                src={`https://www.youtube.com/embed/${activeVideo}?autoplay=1`} 
+                title="Eminem Video"
+                className="w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

@@ -7,7 +7,6 @@ import AwardsSection from '../components/AwardsSection';
 import NewsSection from '../components/NewsSection';
 import Footer from '../components/Footer';
 import MusicVideoSection from '../components/MusicVideoSection';
-import GallerySection from '../components/GallerySection';
 
 const Index = () => {
   return (
@@ -17,7 +16,6 @@ const Index = () => {
       <BiographySection />
       <DiscographySection />
       <MusicVideoSection />
-      <GallerySection />
       <AwardsSection />
       <NewsSection />
       <Footer />
