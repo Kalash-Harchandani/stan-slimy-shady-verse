@@ -20,11 +20,11 @@ const HeroSection = () => {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Hero Background Image - Updated to new Eminem wallpaper */}
+      {/* Hero Background Image - Updated to new Eminem image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0" 
         style={{ 
-          backgroundImage: "url('https://wallpapercat.com/w/full/3/7/2/215895-2560x1600-desktop-hd-eminem-wallpaper-photo.jpg')", 
+          backgroundImage: "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWbBWhfHuHp2J0_b1MtcbHZjJE5Mo_MUnsGQ&s')", 
           filter: "brightness(0.5) contrast(1.2)" 
         }}
       ></div>
